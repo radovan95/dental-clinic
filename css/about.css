@@ -1,0 +1,1192 @@
+@import "../Flat-UI-master/dist/css/flat-ui.min.css";
+@import "../fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome.min.css";
+@import "../Animate/animate.css";
+
+.cd-container {
+    /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
+    width: 90%;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+.cd-container::after {
+    /* clearfix */
+    content: '';
+    display: table;
+    clear: both;
+}
+
+/* --------------------------------
+
+Main components
+
+-------------------------------- */
+header {
+    position: relative;
+    z-index: 2;
+    background: rgba(245, 245, 245, 0.56);
+    text-align: center;
+    box-shadow: 2px 1px 2px 0px rgba(0, 0, 0, 0.44);
+
+
+}
+header #cd-logo {
+    color:#353535;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+header h1 {
+    font-size: 20px;
+    font-size: 1.25rem;
+}
+@media only screen and (min-width: 768px) {
+    header {
+
+    }
+}
+@media only screen and (min-width: 1170px) {
+    header {
+        height: 80px
+
+    }
+    header #cd-logo {
+        position: absolute;
+        top: 10px;
+        left: 5%;
+    }
+    header h1 {
+        font-size: 40px;
+        font-size: 2.5rem;
+        font-weight: 300;
+    }
+}
+
+#cd-nav ul {
+    /* mobile first */
+    position: fixed;
+    width: 90%;
+    max-width: 400px;
+    right: 5%;
+    bottom: 20px;
+    border-radius: 0.25em;
+    box-shadow: 0 0 10px rgba(232, 74, 100, 0.4);
+    background: white;
+    visibility: hidden;
+    /* remove overflow:hidden if you want to create a drop-down menu - but then remember to fix/eliminate the list items animation */
+    overflow: hidden;
+    z-index: 1;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 100% 100%;
+    -moz-transform-origin: 100% 100%;
+    -ms-transform-origin: 100% 100%;
+    -o-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    -webkit-transition: -webkit-transform 0.3s, visibility 0s 0.3s;
+    -moz-transition: -moz-transform 0.3s, visibility 0s 0.3s;
+    transition: transform 0.3s, visibility 0s 0.3s;
+}
+#cd-nav ul li {
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    list-style: none;
+}
+
+
+
+#cd-nav ul.is-visible {
+    visibility: visible;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: -webkit-transform 0.3s, visibility 0s 0s;
+    -moz-transition: -moz-transform 0.3s, visibility 0s 0s;
+    transition: transform 0.3s, visibility 0s 0s;
+    list-style: none;
+}
+#cd-nav ul.is-visible li:nth-child(1) {
+    /* list items animation */
+    -webkit-animation: cd-slide-in 0.2s;
+    -moz-animation: cd-slide-in 0.2s;
+    animation: cd-slide-in 0.2s;
+}
+#cd-nav ul.is-visible li:nth-child(2) {
+    -webkit-animation: cd-slide-in 0.3s;
+    -moz-animation: cd-slide-in 0.3s;
+    animation: cd-slide-in 0.3s;
+}
+#cd-nav ul.is-visible li:nth-child(3) {
+    -webkit-animation: cd-slide-in 0.4s;
+    -moz-animation: cd-slide-in 0.4s;
+    animation: cd-slide-in 0.4s;
+}
+#cd-nav ul.is-visible li:nth-child(4) {
+    -webkit-animation: cd-slide-in 0.5s;
+    -moz-animation: cd-slide-in 0.5s;
+    animation: cd-slide-in 0.5s;
+}
+#cd-nav ul.is-visible li:nth-child(5) {
+    -webkit-animation: cd-slide-in 0.6s;
+    -moz-animation: cd-slide-in 0.6s;
+    animation: cd-slide-in 0.6s;
+}
+#cd-nav li a {
+    display: block;
+    padding: 1.6em;
+    border-bottom: 1px solid #eff2f6;
+}
+#cd-nav li:last-child a {
+    border-bottom: none;
+}
+
+#cd-nav li a:hover {
+    color: #18afd3;
+}
+
+@media only screen and (min-width: 1170px) {
+    #cd-nav ul {
+        /* the navigation moves to the top */
+        position: absolute;
+        width: auto;
+        max-width: none;
+        bottom: auto;
+        top: 21px;
+        background: transparent;
+        visibility: visible;
+        box-shadow: none;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: all 0s;
+        -moz-transition: all 0s;
+        transition: all 0s;
+        z-index: 3;
+    }
+    #cd-nav li {
+        display: inline-block;
+    }
+    #cd-nav li a {
+        opacity: 1;
+        padding: .4em;
+        margin-left: 1.6em;
+        border-bottom: none;
+    }
+    #cd-nav li a:hover {
+        color: #18afd3;
+    }
+    #cd-nav.is-fixed ul {
+        /* when the user scrolls down, the navigation moves to the bottom right in Fixed position - as on touch devices */
+        position: fixed;
+        width: 90%;
+        max-width: 400px;
+        bottom: 20px;
+        top: auto;
+        background: white;
+        visibility: hidden;
+        box-shadow: 0 0 10px rgba(232, 74, 100, 0.4);
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+    }
+    #cd-nav.is-fixed ul li {
+        display: block;
+    }
+    #cd-nav.is-fixed ul li a {
+        padding: 1.6em;
+        margin-left: 0;
+        border-bottom: 1px solid #eff2f6;
+    }
+    #cd-nav ul.has-transitions {
+        /* this class is used to bring back transitions when the navigation moves at the bottom right */
+        -webkit-transition: -webkit-transform 0.3s, visibility 0s 0.3s;
+        -moz-transition: -moz-transform 0.3s, visibility 0s 0.3s;
+        transition: transform 0.3s, visibility 0s 0.3s;
+        z-index: 5;
+    }
+    #cd-nav ul.is-visible {
+        /* this class is used to bring back the navigation animation - as on touch devices */
+        visibility: visible;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: -webkit-transform 0.3s, visibility 0s 0s;
+        -moz-transition: -moz-transform 0.3s, visibility 0s 0s;
+        transition: transform 0.3s, visibility 0s 0s;
+    }
+    #cd-nav ul.is-hidden {
+        /* this class is used to animate the scale down the navigation when the user scrolls down with the navigation still open */
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+        -webkit-transition: -webkit-transform 0.3s;
+        -moz-transition: -moz-transform 0.3s;
+        transition: transform 0.3s;
+    }
+}
+
+.cd-nav-trigger {
+    position: fixed;
+    bottom: 20px;
+    right: 5%;
+    width: 44px;
+    height: 44px;
+    background: white;
+    border-radius: 0.25em;
+    box-shadow: 0 0 10px rgba(232, 74, 100, 0.4);
+    /* image replacement */
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    z-index: 6;
+}
+.cd-nav-trigger span {
+    /* the span element is used to create the menu icon */
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #e84a64;
+    top: 50%;
+    margin-top: -1px;
+    left: 50%;
+    margin-left: -10px;
+    -webkit-transition: background 0.3s;
+    -moz-transition: background 0.3s;
+    transition: background 0.3s;
+}
+.cd-nav-trigger span::before, .cd-nav-trigger span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    background: inherit;
+    width: 100%;
+    height: 100%;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: -webkit-transform 0.3s, background 0s;
+    -moz-transition: -moz-transform 0.3s, background 0s;
+    transition: transform 0.3s, background 0s;
+}
+.cd-nav-trigger span::before {
+    top: -6px;
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+}
+.cd-nav-trigger span::after {
+    bottom: -6px;
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+}
+.cd-nav-trigger.menu-is-open {
+    box-shadow: none;
+}
+.cd-nav-trigger.menu-is-open span {
+    background: rgba(232, 74, 100, 0);
+}
+.cd-nav-trigger.menu-is-open span::before, .cd-nav-trigger.menu-is-open span::after {
+    background: #e84a64;
+}
+.cd-nav-trigger.menu-is-open span::before {
+    top: 0;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+.cd-nav-trigger.menu-is-open span::after {
+    bottom: 0;
+    -webkit-transform: rotate(225deg);
+    -moz-transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
+    -o-transform: rotate(225deg);
+    transform: rotate(225deg);
+}
+@media only screen and (min-width: 1170px) {
+    .cd-nav-trigger {
+        /* the the menu triger is hidden by default on desktop devices */
+        visibility: hidden;
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+        -webkit-transition: -webkit-transform 0.3s, visibility 0s 0.3s;
+        -moz-transition: -moz-transform 0.3s, visibility 0s 0.3s;
+        transition: transform 0.3s, visibility 0s 0.3s;
+    }
+    .is-fixed .cd-nav-trigger {
+        visibility: visible;
+        -webkit-transition: all 0s;
+        -moz-transition: all 0s;
+        transition: all 0s;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+        -webkit-animation: cd-bounce-in 0.3s linear;
+        -moz-animation: cd-bounce-in 0.3s linear;
+        animation: cd-bounce-in 0.3s linear;
+    }
+}
+
+#cd-gallery-items li {
+    margin-bottom: 1.5em;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 0.25em;
+}
+#cd-gallery-items li img {
+    width: 100%;
+    display: block;
+    border-radius: 0.25em;
+}
+@media only screen and (min-width: 768px) {
+    #cd-gallery-items li {
+        width: 48%;
+        float: left;
+        margin-bottom: 2em;
+        margin-right: 4%;
+    }
+    #cd-gallery-items li:nth-child(2n) {
+        margin-right: 0;
+    }
+}
+@media only screen and (min-width: 1170px) {
+    #cd-gallery-items li {
+        width: 31%;
+        float: left;
+        margin-bottom: 2.5em;
+        margin-right: 3.5%;
+    }
+    #cd-gallery-items li:nth-child(2n) {
+        margin-right: 3.5%;
+    }
+    #cd-gallery-items li:nth-child(3n) {
+        margin-right: 0;
+    }
+}
+
+@-webkit-keyframes cd-slide-in {
+    0% {
+        -webkit-transform: translateX(100px);
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+    }
+}
+@-moz-keyframes cd-slide-in {
+    0% {
+        -moz-transform: translateX(100px);
+    }
+
+    100% {
+        -moz-transform: translateY(0);
+    }
+}
+@keyframes cd-slide-in {
+    0% {
+        -webkit-transform: translateX(100px);
+        -moz-transform: translateX(100px);
+        -ms-transform: translateX(100px);
+        -o-transform: translateX(100px);
+        transform: translateX(100px);
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+@-webkit-keyframes cd-bounce-in {
+    0% {
+        -webkit-transform: scale(0);
+    }
+
+    60% {
+        -webkit-transform: scale(1.2);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+    }
+}
+@-moz-keyframes cd-bounce-in {
+    0% {
+        -moz-transform: scale(0);
+    }
+
+    60% {
+        -moz-transform: scale(1.2);
+    }
+
+    100% {
+        -moz-transform: scale(1);
+    }
+}
+@keyframes cd-bounce-in {
+    0% {
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+    }
+
+    60% {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        -o-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+#header-tabs
+{
+    color:#353535;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.background-image-1
+{
+    background: url(../assets/about.jpg) 0 -300px no-repeat;
+    background-size: cover;
+    background-position: center ;
+    box-shadow: 2px 1px 2px 0px rgba(0, 0, 0, 0.44);
+    height: 450px;
+    padding: 0%;
+    margin: 0%;
+    overflow: hidden;
+    color: #FFFFFF;
+    position: relative;
+    top:-80px;
+    z-index: 0;
+}
+
+.color-over-image
+{
+    background: rgba(114, 167, 177, 0.45);
+    background-size: cover;
+    background-position: center top;
+    box-shadow: 2px 1px 2px 0px rgba(0, 0, 0, 0.44);
+    height: 750px;
+    overflow: hidden;
+    z-index: 2;
+    margin: 0%;
+    padding: 0%;
+}
+
+
+@media (min-width: 0px) and (max-width: 479px) {
+    .background-image-1 {
+        height: 400px;
+    }
+    .color-over-image {
+        height: 400px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .background-image-1 {
+        height: 400px;
+    }
+    .color-over-image {
+        height: 400px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .background-image-1 {
+        height: 400px;
+    }
+    .color-over-image {
+        height: 400px;
+    }
+
+}
+
+
+
+.about-1
+{
+    top:200px;
+}
+
+@media (min-width: 0px) and (max-width: 479px) {
+    .about-1
+    {
+        top:140px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .about-1
+    {
+        top:140px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .about-1
+    {
+        top:160px;
+    }
+}
+
+#title-1 {
+    color:#ffffff;
+    font-size: 48px;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.list-inline-arrows
+{
+    margin-top: 80px;
+    z-index: 3;
+}
+
+.list-inline-arrows > li+li
+{
+    padding-left: 15px;
+    z-index: 3;
+}
+
+.list-inline-arrows > li + li:before {
+    content: '\f055';
+    font-family: 'Material Design Icons';
+    font-size: 16px;
+    line-height: 16px;
+    padding-right: 15px;
+    opacity: 0.6;
+    z-index: 3;
+    color: black;
+}
+
+.text-white
+{
+    color: #ffffff;
+    z-index: 3;
+}
+
+.about-1 a
+{
+    color: #ffffff;
+}
+
+.few-words-title
+{
+    font-family: "Bebas Neue Regular";
+    font-size: 48px;
+    margin-top: 0;
+}
+
+.text-under-title
+{
+    margin-left: 0;
+    padding-left: 0;
+}
+
+#paragraph-under-title
+{
+    font-family: "Lato", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #868686;
+}
+
+#horizontal-line-under-title
+{
+    width: 6%;
+    border: 2px solid orange;
+    margin-top: 40px
+}
+
+#title-heart-of-medical-health
+{
+    font-family: "Bebas Neue Regular";
+    font-size: 24px;
+}
+
+#text-subline
+{
+    position: relative;
+    height: 1px;
+    padding: 0;
+    background: #e5e5e5;
+    margin-bottom: 22px;
+    border: none;
+}
+
+#text-subline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1px;
+    width: 50px;
+    background: #f57e57;
+}
+
+#teamTitles
+{
+    color:#18afd3;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+#teamUnderTitle
+{
+    color: darkgrey;
+    font-size: 18px;
+    text-align: left;
+}
+
+#teamDetails
+{
+    color:darkgrey;
+    font-size: 16px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+
+.highlight .button {
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    background: #f09867;
+    width: 150px;
+    height: 50px;
+    line-height: 40px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+    padding-top: 5px;
+    white-space: normal;
+
+}
+
+.highlight .button:before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: -80px;
+    height: 100px;
+    width: 70px;
+    background: rgba(255, 255, 255, .7);
+    transform: rotate(20deg);
+}
+
+.highlight .button:hover:before {
+    left: 260px;
+    transition: all .5s;
+}
+.highlight {margin-bottom:100px;}
+
+.highlight-1 .button {
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    background: #f09867;
+    width: 250px;
+    height: 50px;
+    line-height: 40px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 30px;
+    padding-top: 5px;
+    white-space: normal;
+
+}
+
+.highlight-1 .button:before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: -80px;
+    height: 100px;
+    width: 70px;
+    background: rgba(255, 255, 255, .7);
+    transform: rotate(20deg);
+}
+
+.highlight-1 .button:hover:before {
+    left: 260px;
+    transition: all .5s;
+}
+.highlight-1 {margin-bottom:100px;}
+
+@media (min-width: 0px) and (max-width: 480px) {
+    .highlight .button {
+        width: 170px;
+    }
+
+    .highlight-1 .button {
+        width: 170px;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .highlight-1 .button {
+        width: 230px;
+    }
+}
+
+.heart-of-medical-center-body
+{
+    display: inline-block;
+    padding-left: 10px;
+}
+
+.heart-of-medical-center-image
+{
+    float:left;
+}
+
+@media (min-width: 0px) and (max-width: 991px) {
+    .heart-of-medical-health
+    {
+        padding: 0;
+    }
+}
+
+@media (min-width: 0px) and (max-width: 553px) {
+    .heart-of-medical-health
+    {
+        margin: 0;
+    }
+    .few-words
+    {
+        margin: 0;
+        width: 100%;
+
+    }
+    .few-words-title
+    {
+        font-size: 24px;
+    }
+
+}
+
+#underTitle
+{
+    border: 2px solid orangered;
+    width:100px
+}
+
+#ourTeamTitle
+{
+
+    font-family: "Bebas Neue Regular";
+}
+
+.achievements-image
+{
+    background: transparent url(../assets/dentist-working.jpg);
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: cover;
+    z-index: 1;
+    height: 60%;
+
+
+}
+
+.achievements
+{
+    margin-left: 0;
+    padding: 0;
+    background-color: #F1F3F9;
+
+}
+
+.achievements-icons
+{
+
+    margin-bottom: 4%;
+    text-align: center;
+
+}
+
+.trophy
+{
+    text-align: center;
+    color:white;
+    border: 1px solid ;
+    background-color: #f09867;
+    border-radius: 50%;
+    line-height: 60px;
+    width: 60px;
+    font-size: 24px;
+    height: 60px;
+    position: relative;
+    margin-top: 30px;
+    display: inline-block;
+}
+
+.certificate
+{
+    text-align: center;
+    color:white;
+    border: 1px solid ;
+    background-color: #f09867;
+    border-radius: 50%;
+    line-height: 60px;
+    width: 60px;
+    font-size: 24px;
+    height: 60px;
+    position: relative;
+    margin-top: 30px;
+
+}
+
+.graduate
+{
+    text-align: center;
+    color:white;
+    border: 1px solid ;
+    background-color: #f09867;
+    border-radius: 50%;
+    line-height: 60px;
+    width: 60px;
+    font-size: 24px;
+    height: 60px;
+    position: relative;
+    margin-top: 60px;
+
+}
+
+.star
+{
+    text-align: center;
+    color:white;
+    border: 1px solid ;
+    background-color: #f09867;
+    border-radius: 50%;
+    line-height: 60px;
+    width: 60px;
+    font-size: 24px;
+    height: 60px;
+    position: relative;
+    margin-top: 60px;
+}
+
+.demo{ background: #f8f8f8;
+
+}
+.testimonial{
+    margin: 0 20px 40px;
+}
+.testimonial .testimonial-content{
+    padding: 35px 25px 35px 50px;
+    margin-bottom: 35px;
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    position: relative;
+    height: 150px;
+}
+.testimonial .testimonial-content:after{
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    position: absolute;
+    bottom: -10px;
+    left: 22px;
+    transform: rotate(45deg);
+}
+.testimonial-content .testimonial-icon{
+    width: 50px;
+    height: 45px;
+    background: #ff4242;
+    text-align: center;
+    font-size: 22px;
+    color: #fff;
+    line-height: 42px;
+    position: absolute;
+    top: 37px;
+    left: -19px;
+}
+.testimonial-content .testimonial-icon:before{
+    content: "";
+    border-bottom: 16px solid #e41212;
+    border-left: 18px solid transparent;
+    position: absolute;
+    top: -16px;
+    left: 1px;
+}
+.testimonial .description{
+    font-size: 15px;
+    font-style: italic;
+    color: #8a8a8a;
+    line-height: 23px;
+    margin: 0;
+}
+.testimonial .title{
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    color: #525252;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    margin: 0 0 5px 0;
+}
+.testimonial .post{
+    display: block;
+    font-size: 14px;
+    color: #ff4242;
+}
+.owl-theme .owl-controls{
+    margin-top: 20px;
+    margin-bottom: 5%;
+}
+.owl-theme .owl-controls .owl-page span{
+    background: #ccc;
+    opacity: 1;
+    transition: all 0.4s ease 0s;
+}
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span{
+    background: #ff4242;
+}
+
+#testimonial-title
+{
+    text-align: center;
+    font-family: "Bebas Neue Regular";
+}
+
+.footer
+{
+    background-color: #18afd3;
+    height: auto;
+}
+
+.left-content-footer
+{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+
+.footer-logo
+{
+    padding-top: 12px;
+    background-color: #FFFFFF;
+    float:left;
+}
+
+.header-logo
+{
+    padding-top: 8px;
+    background-color: #FFFFFF;
+    width: 60px;
+}
+
+.copyright
+{
+
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 60px;
+}
+
+.glyphicon-footer
+{
+    text-align: center;
+    margin-top: 40px;
+}
+
+#footer-glyps li a
+{
+    color: #262626;
+
+}
+
+#footer-glyps li a:hover
+{
+    color: #fff;
+
+}
+
+#footer-glyps li
+{
+
+    list-style: none;
+    float:right;
+    margin:10px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #fff;
+    border-radius: 50%;
+    font-size: 25px;
+    position: relative;
+    color: #262626;
+    z-index: 1;
+}
+
+#footer-glyps li:before
+{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left: 0;
+    background: orangered;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: .5s ease-in-out;
+    z-index: -1;
+}
+
+#footer-glyps li:hover:before
+{
+    transform: scale(1);
+}
+
+#footer-glyps li:hover
+{
+    color:#fff;
+}
+
+@media (min-width: 0px) and (max-width: 479px) {
+    .footer-logo
+    {
+        margin-bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        float:none;
+
+    }
+
+    .copyright
+    {
+        margin-top: 20px;
+    }
+
+    #footer-glyps li
+    {
+        float:none;
+
+    }
+
+    #footer-glyps
+    {
+        display: inline-block;
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .footer-logo
+    {
+        margin-bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        float:none;
+    }
+
+    .copyright
+    {
+        margin-top: 20px;
+    }
+
+    #footer-glyps
+    {
+        display: inline-block;
+        margin-left: 0;
+        padding-left: 0;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .footer-logo
+    {
+        margin-top: 15px;
+    }
+
+    #dental-c
+    {
+        margin-top: 15px;
+    }
+
+    #footer-glyps li
+    {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        margin: 5px;
+    }
+
+    .glyphicon-footer
+    {
+        margin-top: 60px;
+    }
+}
+
+
+
+
+
+
