@@ -15,4 +15,15 @@ On the appointment page, the patient can schedule treatment depending on the cho
 
 ## Dentist functionalities
 
-There are two types of dentists. The main dentist and an ordinary dentist. The main dentist has additional options, such as insight into the treatments of all dentists, adding a new dentist, changing the working time (adding, deleting, updating), changing the time to cancel the treatment.
+There are two types of dentists. The main dentist and an ordinary dentist. 
+
+### The main dentist
+has additional options, such as:
+- insight into the treatments of all dentists
+- adding a new dentist
+- changing the working time (adding, deleting, updating)
+- changing the time to cancel the treatment.
+
+### Ordinary dentist
+
+![capture2](https://user-images.githubusercontent.com/25284467/50546771-95ee6100-0c2d-11e9-9258-1c1968069b0a.PNG)
