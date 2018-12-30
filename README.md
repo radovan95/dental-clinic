@@ -11,6 +11,8 @@ On the appointment page, the patient can schedule treatment depending on the cho
 -	View all appointments (scheduled, finished, cancelled)
 -	The ability to add comments after the completed treatment
 
+![capture](https://user-images.githubusercontent.com/25284467/50546724-dc8f8b80-0c2c-11e9-8f15-094fa4d7bef7.PNG)
+
 ## Dentist functionalities
 
 There are two types of dentists. The main dentist and an ordinary dentist. The main dentist has additional options, such as insight into the treatments of all dentists, adding a new dentist, changing the working time (adding, deleting, updating), changing the time to cancel the treatment.
